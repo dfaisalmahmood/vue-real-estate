@@ -1,28 +1,50 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <h1>Real Estate</h1>
+        <!-- <component
+          :userToken="userToken"
+          :is="mode"
+          @userLogin="setUserToken"
+          @userLogout="resetUserToken"
+        ></component> -->
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+  // components: {
+  //   appUserLogin: UserLogin,
+  //   appUserLogout: UserLogout
+  // },
+  // data() {
+  //   return {
+  //     // mode: "appUserLogin",
+  //     userToken: ""
+  //   };
+  // },
+  // computed: {
+  //   mode() {
+  //     if (this.userToken === "") {
+  //       return "appUserLogin";
+  //     } else {
+  //       return "appUserLogout";
+  //     }
+  //   }
+  // },
+  // methods: {
+  //   setUserToken(token) {
+  //     this.userToken = token;
+  //   },
+  //   resetUserToken() {
+  //     this.userToken = "";
+  //   }
+  // }
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
