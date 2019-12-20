@@ -11,7 +11,9 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
+import { mapActions } from "vuex";
+import store from "../store";
 
 export default {
   data() {
@@ -20,36 +22,48 @@ export default {
       password: ""
     };
   },
-  created() {
-    axios.defaults.xsrfCookieName = "csrftoken";
-    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-  },
+  // created() {
+  //   axios.defaults.xsrfCookieName = "csrftoken";
+  //   axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+  // },
   methods: {
-    async login() {
-      //   let response = await axios.post(
-      //     "http://localhost:8080/api/auth/token/login",
-      //     {
-      //       params: {
-      //         email: this.email,
-      //         password: this.password
-      //       }
-      //     }
-      //   );
-      try {
-        let response = await axios({
-          method: "post",
-          url: "http://localhost:8080/auth/token/login/",
-          data: {
-            email: this.email,
-            password: this.password
-          }
-        });
-        this.$emit("userLogin", response.data.auth_token);
-      } catch (err) {
-        console.error(err);
-      }
+    ...mapActions(["userLogin"]),
+    login() {
+      const next = this.$route.query.next ? this.$route.query.next : "";
+      this.userLogin({ email: this.email, password: this.password, next });
+    }
+  },
+  beforeRouteEnter(to, from, next) {
+    if (store.getters.userToken === "") {
+      next();
+    } else {
+      next("/");
     }
   }
+  // async login() {
+  //   //   let response = await axios.post(
+  //   //     "http://localhost:8080/api/auth/token/login",
+  //   //     {
+  //   //       params: {
+  //   //         email: this.email,
+  //   //         password: this.password
+  //   //       }
+  //   //     }
+  //   //   );
+  //   try {
+  //     let response = await axios({
+  //       method: "post",
+  //       url: "http://localhost:8080/auth/token/login/",
+  //       data: {
+  //         email: this.email,
+  //         password: this.password
+  //       }
+  //     });
+  //     this.$emit("userLogin", response.data.auth_token);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // }
 };
 </script>
 

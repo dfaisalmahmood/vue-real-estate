@@ -7,11 +7,29 @@ import UserLogout from "../components/UserLogout.vue";
 
 Vue.use(VueRouter);
 
-const routes = [
-  { path: "", component: Home, exact: true },
-  { path: "/login", component: UserLogin, exact: true },
-  { path: "/logout", component: UserLogout, exact: true },
-  { path: "*", redirect: "/" }
+const routes = [{
+    path: "",
+    component: Home,
+    exact: true,
+    name: "home"
+  },
+  {
+    path: "/login",
+    component: UserLogin,
+    exact: true,
+    name: "userLogin",
+    prop: true
+  },
+  {
+    path: "/logout",
+    component: UserLogout,
+    exact: true,
+    name: "userLogout"
+  },
+  {
+    path: "*",
+    redirect: "/"
+  }
 ];
 
 export default new VueRouter({
