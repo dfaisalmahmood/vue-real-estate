@@ -4,15 +4,17 @@
     <router-link to="/login">Login</router-link>
     <br />
     <router-link to="/logout">Logout</router-link>
+    <br />
+    <router-link to="/dashboard">Dashboard</router-link>
   </div>
 </template>
 
 <script>
-import loginRequiredMixin from "../mixins/loginRequiredMixin";
+  import loginRequiredMixin from "../mixins/loginRequiredMixin";
 
-export default {
-  mixins: [loginRequiredMixin]
-};
+  export default {
+    mixins: [loginRequiredMixin],
+  };
 </script>
 
 <style></style>

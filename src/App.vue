@@ -1,50 +1,34 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-        <h1>Real Estate</h1>
-        <!-- <component
-          :userToken="userToken"
-          :is="mode"
-          @userLogin="setUserToken"
-          @userLogout="resetUserToken"
-        ></component> -->
+  <v-app>
+    <v-content>
+      <!-- <HelloWorld /> -->
+      <Navbar></Navbar>
+      <v-container>
         <router-view></router-view>
-      </div>
-    </div>
-  </div>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
+// import HelloWorld from "./components/HelloWorld";
+import Navbar from "./components/Navbar.vue";
+
 export default {
-  // components: {
-  //   appUserLogin: UserLogin,
-  //   appUserLogout: UserLogout
-  // },
-  // data() {
-  //   return {
-  //     // mode: "appUserLogin",
-  //     userToken: ""
-  //   };
-  // },
-  // computed: {
-  //   mode() {
-  //     if (this.userToken === "") {
-  //       return "appUserLogin";
-  //     } else {
-  //       return "appUserLogout";
-  //     }
-  //   }
-  // },
-  // methods: {
-  //   setUserToken(token) {
-  //     this.userToken = token;
-  //   },
-  //   resetUserToken() {
-  //     this.userToken = "";
-  //   }
-  // }
+  name: "App",
+  components: {
+    // HelloWorld,
+    Navbar
+  },
+
+  data: () => ({
+    //
+  })
 };
 </script>
 
-<style></style>
+<style>
+.no-under:hover {
+  text-decoration: none;
+}
+</style>

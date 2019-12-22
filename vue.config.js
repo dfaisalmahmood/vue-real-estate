@@ -1,6 +1,8 @@
-// vue.config.js
 module.exports = {
-  devServer: {
-    proxy: "http://127.0.0.1:7000/"
-  }
-};
+  "devServer": {
+    "proxy": "http://127.0.0.1:7000/"
+  },
+  "transpileDependencies": [
+    "vuetify"
+  ]
+}
