@@ -1,19 +1,17 @@
 <template>
   <div>
-    <h2>Billing Information</h2>
+    <h2 class="display-1 mt-0">Authentication Information</h2>
     <InfoList :infoItems="infoItems"></InfoList>
   </div>
 </template>
 
 <script>
-import billingInfoMixin from "../../structure/user/billingInfo";
+import authInfoMixin from "../../structure/user/authInfo";
 import InfoList from "../base/InfoList.vue";
 
 export default {
-  components: {
-    InfoList
-  },
-  mixins: [billingInfoMixin]
+  components: { InfoList },
+  mixins: [authInfoMixin]
 };
 </script>
 

@@ -3,22 +3,22 @@ export default {
         return {
             navItems: [{
                     text: 'Basic Information',
-                    icon: '',
+                    icon: 'mdi-information',
                     link: '/user/profile/basic'
                 },
                 {
                     text: 'Authentication',
-                    icon: '',
+                    icon: 'mdi-lock-open',
                     link: '/user/profile/auth'
                 },
                 {
                     text: 'Billing Information',
-                    icon: '',
+                    icon: 'mdi-cash-usd',
                     link: '/user/profile/billing'
                 },
                 {
                     text: 'User settings',
-                    icon: '',
+                    icon: 'mdi-settings',
                     link: '/user/profile/settings'
                 }
             ]

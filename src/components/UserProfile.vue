@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h1>Dashboard</h1>
+    <h1>Profile</h1>
     <v-row>
-      <v-col cols="12" md="4" lg="2">
+      <v-col cols="12" md="4" lg="3">
         <v-list>
           <v-list-item
             v-for="item in navItems"
             :key="item.text"
             :to="item.link"
             link
-            class="no-under pl-0"
+            class="no-under"
           >
             <v-list-item-action>
               <v-icon>{{item.icon}}</v-icon>
@@ -18,7 +18,7 @@
           </v-list-item>
         </v-list>
       </v-col>
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="8" class="ml-2">
         <router-view></router-view>
       </v-col>
     </v-row>
@@ -26,10 +26,10 @@
 </template>
 
 <script>
-import dashboardNavbarMixin from "../structure/user/dashboardNavbar";
+import profileNavbarMixin from "../structure/user/profileNavbar";
 
 export default {
-  mixins: [dashboardNavbarMixin],
+  mixins: [profileNavbarMixin],
   created() {
     console.log(this.$data);
   }

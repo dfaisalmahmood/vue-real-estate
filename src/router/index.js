@@ -2,15 +2,15 @@ import VueRouter from "vue-router";
 import Vue from "vue";
 
 import Home from "../components/Home.vue";
-import Dashboard from "../components/Dashboard.vue";
+import UserProfile from "../components/UserProfile.vue";
 import UserLogin from "../components/UserLogin.vue";
 import UserLogout from "../components/UserLogout.vue";
 import SignUpOwner from "../components/SignUpOwner.vue";
 
-import BasicInfo from '../components/dashboard/BasicInfo.vue';
-import AuthInfo from '../components/dashboard/AuthInfo.vue';
-import BillingInfo from '../components/dashboard/BillingInfo.vue';
-import UserSettings from '../components/dashboard/UserSettings.vue';
+import BasicInfo from '../components/profile/BasicInfo.vue';
+import AuthInfo from '../components/profile/AuthInfo.vue';
+import BillingInfo from '../components/profile/BillingInfo.vue';
+import UserSettings from '../components/profile/UserSettings.vue';
 
 Vue.use(VueRouter);
 
@@ -35,8 +35,8 @@ const routes = [{
   },
   {
     path: "/user/profile",
-    component: Dashboard,
-    name: "userDashboard",
+    component: UserProfile,
+    name: "userProfile",
     children: [{
         path: 'basic',
         component: BasicInfo

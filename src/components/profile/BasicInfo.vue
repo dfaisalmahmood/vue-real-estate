@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Basic Information</h2>
+    <h2 class="display-1 mt-0">Basic Information</h2>
     <!-- <v-form>
       <div
         v-for="(item) in infoItems"

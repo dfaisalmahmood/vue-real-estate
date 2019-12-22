@@ -1,5 +1,5 @@
 <template>
-  <v-form>
+  <v-form class="ml-1">
     <div
       v-for="(item) in infoItems"
       :key="item.text"

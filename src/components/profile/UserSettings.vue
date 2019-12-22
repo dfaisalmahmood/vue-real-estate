@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>User Settings</h2>
+    <h2 class="display-1 mt-0">User Settings</h2>
   </div>
 </template>
 
