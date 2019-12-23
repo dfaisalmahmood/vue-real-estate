@@ -3,28 +3,37 @@ import router from "../../router";
 
 const state = {
   userToken: "",
+  loginError: ""
 };
 
 const getters = {
   userToken: state => state.userToken,
+  loginError: state => state.loginError
 };
 
 const actions = {
-  async userLogin({ commit }, { email, password, next = "" }) {
-    try {
-      console.log(next);
-      const response = await api.post("/auth/token/login/", {
-        email,
-        password,
-      });
-      await commit("userLogin", response.data.auth_token);
-      api.defaults.headers.common[
-        "Authorization"
-      ] = `Token ${response.data.auth_token}`;
-      router.push(`/${next}`); // next: String
-    } catch (err) {
-      console.error(err);
-    }
+  async resetLoginError({ commit }) {
+    await commit("resetLoginError");
+  },
+  // async userLogin({ commit }, { email, password, next = "" }) {
+  //   try {
+  //     console.log(next);
+  //     const response = await api.post("/auth/token/login/", {
+  //       email,
+  //       password
+  //     });
+  //     await commit("userLogin", response.data.auth_token);
+  //     api.defaults.headers.common[
+  //       "Authorization"
+  //     ] = `Token ${response.data.auth_token}`;
+  //     router.push(`/${next}`); // next: String
+  //   } catch (err) {
+  //     console.error(err);
+  //     await commit("loginError", "Wrong credentials");
+  //   }
+  // },
+  async userLogin({ commit }, token) {
+    await commit("userLogin", token);
   },
   async userLogout({ commit }) {
     try {
@@ -35,7 +44,7 @@ const actions = {
     } catch (err) {
       console.error(err);
     }
-  },
+  }
 };
 
 const mutations = {
@@ -46,11 +55,17 @@ const mutations = {
   userLogout(state) {
     state.userToken = "";
   },
+  loginError(message) {
+    state.loginError = message;
+  },
+  resetLoginError() {
+    state.loginError = "";
+  }
 };
 
 export default {
   state,
   actions,
   mutations,
-  getters,
+  getters
 };

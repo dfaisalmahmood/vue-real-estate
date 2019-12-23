@@ -7,50 +7,52 @@ import UserLogin from "../components/UserLogin.vue";
 import UserLogout from "../components/UserLogout.vue";
 import SignUpOwner from "../components/SignUpOwner.vue";
 
-import BasicInfo from '../components/profile/BasicInfo.vue';
-import AuthInfo from '../components/profile/AuthInfo.vue';
-import BillingInfo from '../components/profile/BillingInfo.vue';
-import UserSettings from '../components/profile/UserSettings.vue';
+import BasicInfo from "../components/profile/BasicInfo.vue";
+import AuthInfo from "../components/profile/AuthInfo.vue";
+import BillingInfo from "../components/profile/BillingInfo.vue";
+import UserSettings from "../components/profile/UserSettings.vue";
 
 Vue.use(VueRouter);
 
-const routes = [{
+const routes = [
+  {
     path: "",
     component: Home,
     exact: true,
-    name: "home",
+    name: "home"
   },
   {
     path: "/login",
     component: UserLogin,
     exact: true,
     name: "userLogin",
-    prop: true,
+    props: true
   },
   {
     path: "/logout",
     component: UserLogout,
     exact: true,
-    name: "userLogout",
+    name: "userLogout"
   },
   {
     path: "/user/profile",
     component: UserProfile,
     name: "userProfile",
-    children: [{
-        path: 'basic',
+    children: [
+      {
+        path: "basic",
         component: BasicInfo
       },
       {
-        path: 'auth',
+        path: "auth",
         component: AuthInfo
       },
       {
-        path: 'billing',
+        path: "billing",
         component: BillingInfo
       },
       {
-        path: 'settings',
+        path: "settings",
         component: UserSettings
       }
     ]
@@ -59,8 +61,8 @@ const routes = [{
     path: "/signup/owner",
     component: SignUpOwner,
     exact: true,
-    name: "signUpOwner",
-  },
+    name: "signUpOwner"
+  }
 
   // {
   //   path: "*",
@@ -70,5 +72,5 @@ const routes = [{
 
 export default new VueRouter({
   routes,
-  mode: "history",
+  mode: "history"
 });
